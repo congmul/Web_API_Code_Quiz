@@ -1,0 +1,25 @@
+.navBox{
+    background-color: lightseagreen;
+    width: 100%;
+    height: 60px;
+    margin: 0;
+}
+
+.navElement li{
+    color: white;
+    list-style-type: none;
+    padding-top: 10px;
+    font-size: 25px;
+}
+
+.navElement li a:link,
+.navElement li a:visited,
+.navElement li a:active,
+.navElement li a:hover   {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
