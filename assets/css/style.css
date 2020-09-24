@@ -20,6 +20,41 @@
     text-decoration: none;
 }
 
+button{
+    padding: 5px 15px 5px 30px;
+    background-color: rgb(0, 127, 231);
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    margin: 5px 0px;
+    display: block;
+}
 
+button:hover{
+    background-color: rgb(42, 159, 255);
+}
 
+.checkingIncorrect{
+    color: red; 
+    text-decoration: underline; 
+    font-size: 20px;
+    margin-left: 40px;
+    padding: 5px 25px;
+    border-radius: 5px;
+}
+
+.checkingCorrect{
+    color: rgb(0, 136, 23);
+    text-decoration: underline; 
+    font-size: 20px;
+    margin-left: 40px;
+    padding: 5px 25px;
+    border-radius: 5px;
+}
+
+#nextQuestion{
+    float: right;
+    padding: 5px 10px;
+    background-color:  lightseagreen;
+}
 

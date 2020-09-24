@@ -1,0 +1,56 @@
+1. Inside which HTML element do we put the JavaScript?
+ <js>
+ <javascript>
+ <scripting>
+ <script> correct
+
+2. What is the correct JavaScript syntax to change the content of the HTML element below?
+
+<p id="demo">This is a demonstration.</p>
+
+ document.getElementByName("p").innerHTML = "Hello World!";
+ document.getElementById("demo").innerHTML = "Hello World!";
+ #demo.innerHTML = "Hello World!";
+ document.getElement("p").innerHTML = "Hello World!";
+
+3. Where is the correct place to insert a JavaScript?
+ Both the <head> section and the <body> section are correct
+ The <head> section
+ The <body> section  correct
+
+4. What is the correct syntax for referring to an external script called "xxx.js"?
+ <script name = "xxx.js">
+ <script href="xxx.js">
+ <script src="xxx.js"> correct
+
+ 5. The external JavaScript file must contain the <script> tag.
+  False  correct
+  True 
+
+6. How do you write "Hello World" in an alert box?
+ alertBox("Hello World");
+ alert("Hello World");  correct
+ msgBox("Hello World");
+ msg("Hello World");
+
+7. How do you create a function in JavaScript?
+ function:myFunction()
+ function myFunction()  correct
+ function = myFunction()
+
+8. How do you call a function named "myFunction"?
+ call function myFunction()
+ myFunction()   correct
+ call myFunction()
+
+9. How to write an IF statement in JavaScript?
+ if i == 5 then
+ if(i==5)   correct
+ if i = 5
+ if i = 5 then
+
+10. How to write an IF statement for executing some code if "i" is NOT equal to 5?
+ if(i != 5)  correct
+ if i <> 5
+ if 1 =! 5 then
+ if(i<>5)
