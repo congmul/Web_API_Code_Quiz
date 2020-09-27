@@ -10,6 +10,7 @@ var setTime = 59;
 var questionNum = 0;
 var correct = 0;
 
+// initialize Questions Object
 var questionsArr = [{
     "question": "1. Inside which HTML element do we put the JavaScript?",
     "example": {
@@ -17,9 +18,9 @@ var questionsArr = [{
         "2": "<javascript>",
         "3": "<scripting>",
         "4": "<script>"
-        },
-    "correctAnswer": "4"
     },
+    "correctAnswer": "4"
+},
 
 {
     "question": "2. Where is the correct place to insert a JavaScript?",
@@ -27,9 +28,9 @@ var questionsArr = [{
         "1": "Both the <head> section and the <body> section are correct",
         "2": "The <head> section",
         "3": "The <body> section"
-        },
-    "correctAnswer": "3"
     },
+    "correctAnswer": "3"
+},
 
 {
     "question": "3. What is the correct syntax for referring to an external script called \"xxx.js\"?",
@@ -37,9 +38,9 @@ var questionsArr = [{
         "1": "<script name = xxx.js>",
         "2": "<script href=xxx.js>",
         "3": "<script src=xxx.js>"
-        },
-    "correctAnswer": "3"
     },
+    "correctAnswer": "3"
+},
 
 {
     "question": "4. How do you call a function named \"myFunction\"?",
@@ -47,9 +48,9 @@ var questionsArr = [{
         "1": "call function myFunction()",
         "2": "myFunction() ",
         "3": "call myFunction()"
-        },
-    "correctAnswer": "2"
     },
+    "correctAnswer": "2"
+},
 
 {
     "question": "5. How to write an IF statement for executing some code if \"i\" is NOT equal to 5?",
@@ -58,12 +59,12 @@ var questionsArr = [{
         "2": "if i <> 5",
         "3": "if 1 =! 5 then",
         "4": " if(i<>5)"
-        },
-    "correctAnswer": "1"
     },
+    "correctAnswer": "1"
+},
 ];
 
-
+// questionsGenerator Function Start
 function questionsGenerator(num) {
     var questionFrame = "<h2>" + questionsArr[num]["question"] + "</h2>";
     var olEl = document.createElement("ol");
@@ -74,9 +75,6 @@ function questionsGenerator(num) {
 
     for (let i in questionsArr[num]["example"]) {
         var index = parseInt(i);
-
-        console.log("index: "+index);
-
         var liEl = document.createElement("li");
         var buttonEl = document.createElement("button");
         var answerFrame = questionsArr[num]["example"][index];
@@ -89,9 +87,9 @@ function questionsGenerator(num) {
     var quizAnswerEL = document.querySelector(".quizAnswer");
     var checking = document.createElement("check");
     var nextQuestion = document.createElement("button");
-    nextQuestion.setAttribute("id","nextQuestion");
+    nextQuestion.setAttribute("id", "nextQuestion");
     startQuestionEl.appendChild(checking);
-    
+
 
     quizAnswerEL.addEventListener("click", (e) => {
         var element = e.target;
@@ -99,37 +97,35 @@ function questionsGenerator(num) {
 
         if (element.matches("li")) {
             if (userAnswer === questionsArr[num]["correctAnswer"]) {
-                checking.setAttribute("class","checkingCorrect");
+                checking.setAttribute("class", "checkingCorrect");
                 checking.textContent = "Correct";
                 correct++;
                 setTime += 5;
-                
+
             } else {
-                checking.setAttribute("class","checkingIncorrect");
+                checking.setAttribute("class", "checkingIncorrect");
                 checking.textContent = "Incorrect";
                 setTime -= 5;
             }
-            if(questionNum < 4){
+            if (questionNum < 4) {
                 startQuestionEl.appendChild(nextQuestion);
                 nextQuestion.textContent = "next Question";
-            }else{
+            } else {
                 startQuestionEl.appendChild(nextQuestion);
                 nextQuestion.textContent = "Submit";
-                
             }
         }
     });
     nextQuestion.addEventListener("click", (e) => {
         console.log(e.target);
         questionNum++;
-        if(questionNum < 5){
+        if (questionNum < 5) {
             questionsGenerator(questionNum);
-        }else{
+        } else {
             finalScore(setTime);
             setTime = null;
         }
     });
-    
 }
 
 startBtnEl.addEventListener("click", timer);
@@ -139,50 +135,57 @@ function timer() {
     timeEl.textContent = 60;
     startBtnDivEl.innerHTML = "";
 
+    // Timer Interval Start
     var timerInterval = setInterval(function () {
         timeEl.textContent = setTime;
         setTime--;
         if (setTime < 10) {
             timeEl.setAttribute("style", "color:red")
         }
-        if (setTime < 0) {
+        if (setTime === 0) {
             clearInterval(timerInterval);
             alert("Time Out!!");
             return window.location.href = "./assets/html/highscores.html";
+        }
+        if (setTime === -1) {
+            clearInterval(timerInterval);
         }
     }, 1000);
 
     questionsGenerator(questionNum);
 }
 
-function finalScore(setTime){
+function finalScore(setTime) {
     var finalScoreNum = setTime * correct;
     var finalText = "<h3>All done</h3>" + "<p>Final Score: <span id=\"finalScore\"></span></p>";
-
     startQuestionEl.innerHTML = finalText;
 
     var finalScoreEl = document.querySelector("#finalScore");
-    finalScoreEl.textContent = finalScoreNum;
-    
-    var divEl = document.createElement("div");
-    divEl.setAttribute("class", "row");
-    divEl.setAttribute("id", "finalScoreDiv");
-    var inputEl = document.createElement("input");
-    inputEl.setAttribute("class", "saveInitial");
-    inputEl.setAttribute("placeHolder", "Input your initial");
 
+    var divEl = document.createElement("div");
+    var labelEl = document.createElement("lable");
+    var inputEl = document.createElement("input");
     var saveButton = document.createElement("button");
-    saveButton.setAttribute("id","saveBtn");
+
+    divEl.setAttribute("class", "row");
+    labelEl.setAttribute("id", "label");
+    inputEl.setAttribute("class", "saveInitial");
+    inputEl.setAttribute("placeHolder", "your initials");
+    saveButton.setAttribute("id", "saveBtn");
+    
+    finalScoreEl.textContent = finalScoreNum;
+    labelEl.textContent = "Enter Initials: ";
     saveButton.textContent = "Save";
 
     startQuestionEl.appendChild(divEl);
+    divEl.appendChild(labelEl);
     divEl.appendChild(inputEl);
     divEl.appendChild(saveButton);
 
-    document.querySelector("#saveBtn").addEventListener("click", function(){
+    document.querySelector("#saveBtn").addEventListener("click", function () {
         var initialName = inputEl.value;
         localStorage.setItem(initialName, finalScoreNum);
-         window.location.href = "./assets/html/highscores.html";
+        window.location.href = "./assets/html/highscores.html";
     })
 }
 

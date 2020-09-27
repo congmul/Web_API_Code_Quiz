@@ -1,17 +1,16 @@
+/* Navigation Style */
 .navBox{
     background-color: lightseagreen;
     width: 100%;
     height: 60px;
     margin: 0;
 }
-
 .navElement li{
     color: white;
     list-style-type: none;
     padding-top: 10px;
     font-size: 25px;
 }
-
 .navElement li a:link,
 .navElement li a:visited,
 .navElement li a:active,
@@ -20,6 +19,7 @@
     text-decoration: none;
 }
 
+/* Button Style */
 button{
     padding: 5px 15px 5px 30px;
     background-color: rgb(0, 127, 231);
@@ -29,11 +29,11 @@ button{
     margin: 5px 0px;
     display: block;
 }
-
 button:hover{
     background-color: rgb(42, 159, 255);
 }
 
+/* Letter if the answer is correct or not Style */
 .checkingIncorrect{
     color: red; 
     text-decoration: underline; 
@@ -42,7 +42,6 @@ button:hover{
     padding: 5px 25px;
     border-radius: 5px;
 }
-
 .checkingCorrect{
     color: rgb(0, 136, 23);
     text-decoration: underline; 
@@ -52,22 +51,31 @@ button:hover{
     border-radius: 5px;
 }
 
+/* NextQuestion Button Style*/
 #nextQuestion{
     float: right;
     padding: 5px 10px;
     background-color:  lightseagreen;
 }
 
+/* Label for Initials Input Style */
+#label{
+ padding: 5px;
+ padding-right: 10px;
+ margin-left: 10px;
+}
+
+/* Save Button Style */
 #saveBtn{
     margin: 0 0 0 10px;
     height: 35px;
     padding: 5px;
 }
 
-#finalScoreDiv{
-    margin-left: 10px;
-}
 
+/***** Highscores.html Style Start *****/
+
+/* Scores Table Style */
 .highScoreBox{
     background-color: lightseagreen;
     padding-left: 25px;
@@ -76,20 +84,23 @@ button:hover{
     border-radius: 1%;
     color:white;
 }
-
-.hightscore-btn{
-    padding: 10px;
-    margin-left: 20px;
-    float: left;
-}
-
+/* Scores Table inside Style */
 .scoreBox {
     background-color: white;
     padding-left: 10px;
     display: flex;
     color: black;
 }
-
 .scoreBox0 {
     padding-left: 10px;
 }
+
+/* Button under Scores Table */
+.hightscore-btn{
+    padding: 10px;
+    margin-left: 20px;
+    float: left;
+}
+
+
+

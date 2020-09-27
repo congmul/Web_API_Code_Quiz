@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
+
+    <!-- Bootstrap Link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <!-- CSS Link -->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
+    <!-- Navigation Start -->
     <nav>
         <div class="row navBox">
             <ul class="col-5 navElement">
@@ -24,7 +29,7 @@
             </ul>
         </div>
     </nav>
-
+    <!-- Container Start -->
     <div class="container mt-5 pt-5">
         <div class="row">
             <div class="col-2"></div>
@@ -33,20 +38,19 @@
                     <h1>Welcome to Quiz Station</h1>
                 </div>
                 <div class="row justify-content-center mt-2">
-                    <div class="col-10 ml-3">
+                    <article class="col-10 ml-3">
                         There are 5 Quizzes on Javascript fundamentals. It will be helpful to understand Javascript. The
-                        total time is 60 sec, but if you get the wrong answer, the time will be short. Click the button
+                        <strong>total time is 60 sec</strong>, but if you get the wrong answer, the time will be short. Click the button
                         to Start!!
-                    </div>
+                    </article>
                 </div>
                 <div class="row justify-content-center mt-5" id="startBtnDiv">
                     <button id="startBtn" class="btn btn-primary pl-5 pr-5 pt-3 pb-3">Start</button>
                 </div>
             </div>
-            <!-- <div class="col-2"></div> -->
         </div>
     </div>
-
+    <!-- Script Link -->
     <script src=./assets/script/script.js></script>
 </body>
 
