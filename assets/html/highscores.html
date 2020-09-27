@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
     <nav>
         <div class="row navBox">
             <ul class="col-5 navElement">
-                <li><a href="index.html">Quiz Station</a></li>
+                <li><a href="../../index.html">Quiz Station</a></li>
             </ul>
             <ul class="col-2 navElement">
                 <li><span id="timeText"></span><span id="time"></span></li>
             </ul>
             <ul class="col-5 navElement text-right">
-                <li><a href="assets/html/highscores.html">High Scores</a></li>
+                <li><a href="highscores.html">High Scores</a></li>
             </ul>
         </div>
     </nav>
@@ -28,26 +26,22 @@
     <div class="container mt-5 pt-5">
         <div class="row">
             <div class="col-2"></div>
-            <div class="col-8" id="startQuestion">
+            <div class="col-8">
                 <div class="row justify-content-center">
-                    <h1>Welcome to Quiz Station</h1>
+                    <h1>High Scores</h1>
                 </div>
                 <div class="row justify-content-center mt-2">
-                    <div class="col-8 ml-3">
-                        There are 5 Quizzes on Javascript fundamentals. It will be helpful to understand Javascript. The
-                        total time is 60 sec, but if you get the wrong answer, the time will be short. Click the button
-                        to Start!!
+                    <div class="col-8 ml-3" id="highSocresText">
+                        <ol class="highScoreBox">
+
+                        </ol>
                     </div>
-                </div>
-                <div class="row justify-content-center mt-5" id="startBtnDiv">
-                    <button id="startBtn" class="btn btn-primary pl-5 pr-5 pt-3 pb-3">Start</button>
                 </div>
             </div>
             <div class="col-2"></div>
         </div>
     </div>
-
-    <script src=./assets/script/script.js></script>
+    
+    <script src="../script/scriptHighscores.js"></script>
 </body>
-
 </html>

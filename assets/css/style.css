@@ -58,3 +58,38 @@ button:hover{
     background-color:  lightseagreen;
 }
 
+#saveBtn{
+    margin: 0 0 0 10px;
+    height: 35px;
+    padding: 5px;
+}
+
+#finalScoreDiv{
+    margin-left: 10px;
+}
+
+.highScoreBox{
+    background-color: lightseagreen;
+    padding-left: 25px;
+    border-bottom: solid 5px lightseagreen;;
+    border-right: solid 25px lightseagreen;;
+    border-radius: 1%;
+    color:white;
+}
+
+.hightscore-btn{
+    padding: 10px;
+    margin-left: 20px;
+    float: left;
+}
+
+.scoreBox {
+    background-color: white;
+    padding-left: 10px;
+    display: flex;
+    color: black;
+}
+
+.scoreBox0 {
+    padding-left: 10px;
+}

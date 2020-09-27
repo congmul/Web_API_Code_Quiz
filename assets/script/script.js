@@ -8,6 +8,7 @@ var startQuestionEl = document.querySelector("#startQuestion");
 // initialize state
 var setTime = 59;
 var questionNum = 0;
+var correct = 0;
 
 var questionsArr = [{
     "question": "1. Inside which HTML element do we put the JavaScript?",
@@ -16,9 +17,9 @@ var questionsArr = [{
         "2": "<javascript>",
         "3": "<scripting>",
         "4": "<script>"
-    },
+        },
     "correctAnswer": "4"
-},
+    },
 
 {
     "question": "2. Where is the correct place to insert a JavaScript?",
@@ -26,9 +27,9 @@ var questionsArr = [{
         "1": "Both the <head> section and the <body> section are correct",
         "2": "The <head> section",
         "3": "The <body> section"
-    },
+        },
     "correctAnswer": "3"
-},
+    },
 
 {
     "question": "3. What is the correct syntax for referring to an external script called \"xxx.js\"?",
@@ -36,9 +37,9 @@ var questionsArr = [{
         "1": "<script name = xxx.js>",
         "2": "<script href=xxx.js>",
         "3": "<script src=xxx.js>"
-    },
+        },
     "correctAnswer": "3"
-},
+    },
 
 {
     "question": "4. How do you call a function named \"myFunction\"?",
@@ -46,9 +47,9 @@ var questionsArr = [{
         "1": "call function myFunction()",
         "2": "myFunction() ",
         "3": "call myFunction()"
-    },
+        },
     "correctAnswer": "2"
-},
+    },
 
 {
     "question": "5. How to write an IF statement for executing some code if \"i\" is NOT equal to 5?",
@@ -57,11 +58,9 @@ var questionsArr = [{
         "2": "if i <> 5",
         "3": "if 1 =! 5 then",
         "4": " if(i<>5)"
-    },
+        },
     "correctAnswer": "1"
-},
-
-
+    },
 ];
 
 
@@ -102,6 +101,7 @@ function questionsGenerator(num) {
             if (userAnswer === questionsArr[num]["correctAnswer"]) {
                 checking.setAttribute("class","checkingCorrect");
                 checking.textContent = "Correct";
+                correct++;
                 setTime += 5;
                 
             } else {
@@ -115,6 +115,7 @@ function questionsGenerator(num) {
             }else{
                 startQuestionEl.appendChild(nextQuestion);
                 nextQuestion.textContent = "Submit";
+                
             }
         }
     });
@@ -124,7 +125,8 @@ function questionsGenerator(num) {
         if(questionNum < 5){
             questionsGenerator(questionNum);
         }else{
-            console.log("Complete");
+            finalScore(setTime);
+            setTime = null;
         }
     });
     
@@ -151,3 +153,35 @@ function timer() {
 
     questionsGenerator(questionNum);
 }
+
+function finalScore(setTime){
+    var finalScoreNum = setTime * correct;
+    var finalText = "<h3>All done</h3>" + "<p>Final Score: <span id=\"finalScore\"></span></p>";
+
+    startQuestionEl.innerHTML = finalText;
+
+    var finalScoreEl = document.querySelector("#finalScore");
+    finalScoreEl.textContent = finalScoreNum;
+    
+    var divEl = document.createElement("div");
+    divEl.setAttribute("class", "row");
+    divEl.setAttribute("id", "finalScoreDiv");
+    var inputEl = document.createElement("input");
+    inputEl.setAttribute("class", "saveInitial");
+    inputEl.setAttribute("placeHolder", "Input your initial");
+
+    var saveButton = document.createElement("button");
+    saveButton.setAttribute("id","saveBtn");
+    saveButton.textContent = "Save";
+
+    startQuestionEl.appendChild(divEl);
+    divEl.appendChild(inputEl);
+    divEl.appendChild(saveButton);
+
+    document.querySelector("#saveBtn").addEventListener("click", function(){
+        var initialName = inputEl.value;
+        localStorage.setItem(initialName, finalScoreNum);
+         window.location.href = "./assets/html/highscores.html";
+    })
+}
+
