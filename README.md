@@ -12,4 +12,4 @@ How to work
 
 LINK : https://congmul.github.io/Web_API_Code_Quiz/
 
-<img src="./assets//gif/quiz.gif" width = "400">
+<img src="./assets//gif/quiz.gif" width = "600">
