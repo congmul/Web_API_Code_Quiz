@@ -155,6 +155,7 @@ function timer() {
     questionsGenerator(questionNum);
 }
 
+//Final Score Display Fucntion.
 function finalScore(setTime) {
     var finalScoreNum = setTime * correct;
     var finalText = "<h3>All done</h3>" + "<p>Final Score: <span id=\"finalScore\"></span></p>";
