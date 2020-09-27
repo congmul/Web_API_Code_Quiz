@@ -147,7 +147,8 @@ function timer() {
         }
         if (setTime < 0) {
             clearInterval(timerInterval);
-            console.log("End of ths quiz");
+            alert("Time Out!!");
+            return window.location.href = "./assets/html/highscores.html";
         }
     }, 1000);
 
